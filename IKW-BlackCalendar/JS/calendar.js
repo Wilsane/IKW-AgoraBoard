@@ -1,6 +1,7 @@
 // Get references to the DOM elements used for scheduling
 let title = document.getElementById("scheduleTitle");
 let description = document.getElementById("scheduleDescription");
+let eventType = document.getElementById("eventType");
 let startDate = document.getElementById("scheduleStartDate");
 let startTime = document.getElementById("scheduleStartTime");
 let endDate = document.getElementById("scheduleEndDate");
@@ -16,6 +17,7 @@ let getElements = async () => {
   return {
     title: title.value,
     description: description.value,
+    eventType: eventType.value,
     startDate: startDate.value,
     startTime: startTime.value,
     endDate: endDate.value,
@@ -27,6 +29,7 @@ let getElements = async () => {
 function clearElements() {
   title.value = "";
   description.value = "";
+  eventType.value = "";
   startDate.value = "";
   startTime.value = "";
   endDate.value = "";
@@ -36,8 +39,15 @@ function clearElements() {
 // Function to handle the event submission
 let submitSchedule = async (e) => {
   e.preventDefault(); // Prevent form from reloading the page
-  const { title, description, startDate, startTime, endDate, endTime } =
-    await getElements();
+  const {
+    title,
+    description,
+    eventType,
+    startDate,
+    startTime,
+    endDate,
+    endTime,
+  } = await getElements();
 
   // Log the event details to the console for debugging
   console.log(
@@ -48,6 +58,7 @@ let submitSchedule = async (e) => {
   scheduleList.push({
     title,
     description,
+    eventType,
     startDate,
     startTime,
     endDate,
@@ -63,6 +74,7 @@ let submitSchedule = async (e) => {
       title: title,
       start: `${startDate}T${startTime}`,
       end: `${endDate}T${endTime}`,
+      eventType: `${eventType}`,
       description: description,
     });
   }
@@ -97,8 +109,15 @@ let load = async () => {
 // Function to render event cards (future implementation placeholder)
 let renderEventCards = async () => {
   scheduleList.forEach((eventData) => {
-    const { title, description, startDate, startTime, endDate, endTime } =
-      eventData;
+    const {
+      title,
+      description,
+      eventType,
+      startDate,
+      startTime,
+      endDate,
+      endTime,
+    } = eventData;
     // Code to render event cards can be added here
   });
 };
@@ -118,11 +137,13 @@ const showEventDetails = (event) => {
     .split("T")[0];
   document.getElementById("eventEndTime").value =
     event.end.toLocaleTimeString();
+  document.getElementById("btn-join").innerHTML = event.extendedProps.eventType;
 
   // Show the Offcanvas to display event details
   const offcanvas = new bootstrap.Offcanvas(
     document.getElementById("eventOffcanvas")
   );
+
   offcanvas.show();
 };
 
@@ -163,6 +184,7 @@ let draw = async (data) => {
     start: `${event.startDate}T${event.startTime}`,
     end: `${event.endDate}T${event.endTime}`,
     description: event.description,
+    eventType: event.eventType,
   }));
 
   // Call the draw method with the event data

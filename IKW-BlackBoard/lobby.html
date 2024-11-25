@@ -80,7 +80,12 @@
 
           <div class="form__field__wrapper">
             <label>Room Name</label>
-            <input type="text" name="room" placeholder="Enter room name..." />
+            <input
+              id="room_name"
+              type="text"
+              name="room"
+              placeholder="Enter room name..."
+            />
           </div>
 
           <div class="form__field__wrapper">
@@ -102,5 +107,16 @@
       </div>
     </main>
   </body>
+  <!-- <script>
+    // Get the query parameters from the URL
+    const params = new URLSearchParams(window.location.search);
+    const roomID = params.get("roomID");
+
+    document.getElementById("room_name").value = roomID;
+    form.name.value=roomID;
+
+    // Output to test
+    console.log("Room ID:", roomID);
+  </script> -->
   <script type="text/javascript" src="js/lobby.js"></script>
 </html>

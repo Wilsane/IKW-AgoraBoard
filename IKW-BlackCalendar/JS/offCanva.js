@@ -6,6 +6,32 @@ let inputs = document.querySelectorAll(
 // Get the delete and update buttons by their IDs
 let deleteBtn = document.getElementById("deleteEvent");
 let updateBtn = document.getElementById("updateEvent");
+let joinBtn = document.getElementById("btn-join");
+
+let generateRoomId = async (e) => {
+  e.preventDefault();
+
+  // Get the event title and remove whitespaces
+  const eventTitle = document.getElementById("eventTitle").textContent.trim();
+  const eventTitleNoSpaces = eventTitle.replace(/\s+/g, "");
+
+  // Get values from the specified inputs
+  const startDate = document.getElementById("eventStartDate").value.trim();
+  const startTime = document.getElementById("eventStartTime").value.trim();
+  const endDate = document.getElementById("eventEndDate").value.trim();
+  const endTime = document.getElementById("eventEndTime").value.trim();
+
+  // Combine the values into a single string
+  const combinedDetails = `${startDate}${startTime}_${endDate}${endTime}`;
+
+  const roomID = `${eventTitleNoSpaces}_${combinedDetails}`;
+
+  // Redirect to room.html with roomID as a query parameter
+  const roomUrl = `../IKW-BlackBoard/lobby.html?roomID=${encodeURIComponent(
+    roomID
+  )}`;
+  window.location.href = roomUrl;
+};
 
 // Wait for the DOM to fully load before running the script
 document.addEventListener("DOMContentLoaded", function () {
@@ -36,3 +62,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+joinBtn.addEventListener("click", generateRoomId);
