@@ -1,8 +1,12 @@
+#btn-join i {
+  margin-right: 8px; /* Add space between the icon and the text */
+}
+
 h1 {
   position: absolute;
   top: 50%;
-  left: 25%;
-  transform: translate(-25%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: transparent;
   -webkit-text-stroke: 2px white;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
@@ -16,6 +20,7 @@ h1 {
 }
 .event__actions {
   border-radius: 5px 0 5px 0;
+  cursor: pointer;
 }
 .event__actions i {
   cursor: pointer;
@@ -58,4 +63,35 @@ input[disabled] {
 
 .offcanvas {
   z-index: 2050;
+}
+
+/* Button styling */
+#btnNewSchedule {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip styling */
+.custom-tooltip {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  padding: 8px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --bs-tooltip-bg: var(--bd-violet-bg);
+  --bs-tooltip-color: var(--bs-white);
+}
+
+.custom-tooltip .tooltip-arrow {
+  color: #007bff !important;
 }

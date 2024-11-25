@@ -24,39 +24,6 @@
     <script src="node_modules/fullcalendar/index.global.min.js"></script>
   </head>
   <body>
-    <style>
-      /* Button styling */
-      #btnNewSchedule {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Tooltip styling */
-      .custom-tooltip {
-        background-color: #007bff;
-        color: #fff;
-        font-size: 0.9rem;
-        border-radius: 5px;
-        padding: 8px 12px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        --bs-tooltip-bg: var(--bd-violet-bg);
-        --bs-tooltip-color: var(--bs-white);
-      }
-
-      .custom-tooltip .tooltip-arrow {
-        color: #007bff !important;
-      }
-    </style>
-
     <div class="schedule__wrapper">
       <!-- Button trigger new schedule modal -->
       <button
@@ -114,22 +81,16 @@
                 ></textarea>
                 <label for="floatingTextarea2">Description</label>
               </div>
-              <div class="mb-3 form-floating">
-                <input
-                  list="browsers"
-                  class="form-control"
-                  name="browser"
-                  id="browser"
-                />
 
-                <datalist id="browsers">
-                  <option value="Video Call">
-                    <i class="bi bi-camera-video-fill"></i> Video Call
-                  </option>
-                  <option value="Assignment">Assignment</option>
-                </datalist>
-                <label for="scheduleStartDate">Event Type</label>
+              <div class="form-floating mb-3">
+                <select class="form-select" id="eventType">
+                  <option value="" selected disabled></option>
+                  <option value="Join">Video Call</option>
+                  <option value="Download">Assignment</option>
+                </select>
+                <label for="eventType">Event Type</label>
               </div>
+
               <div class="row g-3 mb-3">
                 <div class="form-floating col">
                   <input
@@ -285,9 +246,12 @@
               Delete
             </button>
           </div>
-          <button class="btn btn-primary w-100 fw-bolder fs-5 d-none">
+          <buttonn
+            id="btn-join"
+            class="btn btn-primary w-100 fw-bolder fs-5 mt-3"
+          >
             <i class="bi bi-camera-video-fill me-2"></i> Join
-          </button>
+          </buttonn>
         </div>
       </div>
 

@@ -6,6 +6,7 @@
     <title>IKW-BlackBoard-Room</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/room.css" />
+    <script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-4.0.0.js"></script>
   </head>
   <body>
     <header id="nav">
@@ -124,6 +125,21 @@
                 <path
                   d="M0 1v17h24v-17h-24zm22 15h-20v-13h20v13zm-6.599 4l2.599 3h-12l2.599-3h6.802z"
                 />
+              </svg>
+            </button>
+
+            <button id="record-btn" style="padding: 0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="60"
+                height="60"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8m0 1A5 5 0 1 0 8 3a5 5 0 0 0 0 10"
+                />
+                <path d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0" />
               </svg>
             </button>
             <button id="leave-btn" style="background-color: #ff5050">

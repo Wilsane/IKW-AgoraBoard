@@ -246,6 +246,17 @@
   width: 100%;
 }
 
+#record-btn {
+  display: none;
+  justify-content: center;
+  align-self: center;
+}
+
+#record-btn svg {
+  width: 70%;
+  height: 70%;
+}
+
 @media (max-width: 1400px) {
   .video__container {
     height: 160px;
